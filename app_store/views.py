@@ -1,7 +1,6 @@
 from itertools import product
 from django.shortcuts import render
-
-# Create your views here.
+from app_store.models import Product
 
 # Pseudocode for context variables
 product = [
@@ -18,8 +17,10 @@ product = [
 ]
 
 def home(request):
+    all_products = Product.objects.all()
     context = {
         'product' : product,
-        'title' : 'Home'
+        'title' : 'Home', 
+        'all_products' : all_products
     }
     return render(request, "app_store/home.html", context)

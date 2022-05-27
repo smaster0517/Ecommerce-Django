@@ -2,9 +2,26 @@
     
 {% block content %}
     <h1>Home</h1>
-    {% for item in product %}
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.date_posted }}</p>
-        <p>Description: {{ item.description }}</p>
-    {% endfor %}
+
+    <div>
+        <u>From Pseudocode</u>
+        {% for item in product %}
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.date_posted }}</p>
+            <p>Description: {{ item.description }}</p>
+        {% endfor %}
+    </div>
+
+    <br>
+    <br>
+    
+    <div>
+        <u>From Database</u>
+        {% for p in all_products %}
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.date_posted }}</p>
+            <p>Description: {{ p.description }}</p>
+            <p>Price: {{ p.price }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
