@@ -9,3 +9,6 @@ class Product(models.Model):
     rating = models.IntegerField(default=0)
     #TODO images
     date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title

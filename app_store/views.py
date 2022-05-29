@@ -1,26 +1,20 @@
-from itertools import product
-from django.shortcuts import render
+# from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from app_store.models import Product
 
-# Pseudocode for context variables
-product = [
-    {
-        'title' : 'Sony PS5',
-        'description' : 'Electronic Item For Sale',
-        'date_posted' : 'January 1, 2022'
-    }, 
-    {
-        'title' : 'Satiety Zombie',
-        'description' : 'Art Item For Sale',
-        'date_posted' : 'January 10, 2022'
-    }
-]
+# def home(request):
+#     all_products = Product.objects.all()
+#     context = {
+#         'title' : 'Home', 
+#         'all_products' : all_products
+#     }
+#     return render(request, "app_store/home.html", context)
 
-def home(request):
-    all_products = Product.objects.all()
-    context = {
-        'product' : product,
-        'title' : 'Home', 
-        'all_products' : all_products
-    }
-    return render(request, "app_store/home.html", context)
+class ProductListView(ListView):
+    model = Product
+    template_name = 'app_store/home.html' # <app>/<model>_<viewtype>.html
+    context_object_name = 'all_products'
+    ordering = ['-date_posted'] # date_posted - oldest to newest
+
+class ProductDetailView(DetailView):
+    model = Product

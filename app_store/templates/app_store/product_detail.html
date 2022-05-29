@@ -1,0 +1,11 @@
+{% extends "app_store/base.html" %}
+    
+{% block content %}
+    <div>
+        <u>Product Details</u>
+        <h3>{{ object.title }}</h3>
+        <p>{{ object.date_posted }}</p>
+        <p>Description: {{ object.description }}</p>
+        <p>Price: {{ object.price }}</p>
+    </div>
+{% endblock %}
