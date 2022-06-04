@@ -1,0 +1,21 @@
+body {
+    background: #f4dcb6;
+}
+
+/* -- Embedded Text Home page Image -- */
+.banner-card {
+    position: relative;
+}
+
+.banner-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 0;
+    color: #000000;
+    padding: 10px;
+    right: 25%;
+} /* ---------------------------------- */

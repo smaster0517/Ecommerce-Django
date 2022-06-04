@@ -1,15 +1,40 @@
 {% extends "app_store/base.html" %}
-    
-{% block content %}
-    <h1>Home</h1>
+{% load static %}
 
-    <div>
-        <u>From Database</u>
-        {% for product in all_products %}
-            <h3> <a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h3>
-            <p>{{ product.date_posted }}</p>
-            <p>Description: {{ product.description }}</p>
-            <p>Price: {{ product.price }}</p>
-        {% endfor %}
+{% block content %}
+    <div class="banner-card">
+        <img src="{% static 'app_store/site_images/penguin_store.jpg' %}" class="img-responsive" alt="...">
+        <div class="banner-text">
+            <!-- custom -->
+            <!-- <h1>embedded text in image</h1> -->
+        </div>
     </div>
+
+    <div class="text-center mt-5">
+        <!-- custom -->
+        <div class="lead">The best deals should not be hard to find</div>
+        <div class="lead">Don't forget us when remembering where you found that deal</div>
+        <div class="lead">Family founded and operated buisiness</div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <p class="display-6 text-center">Featured Items</p>
+        <div class="row row-cols-1 row-cols-md-4 g-4 text-center">
+            {% for product in all_products %}
+            <div class="col">
+              <div class="card h-100">
+                <!-- custom -->
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <!-- custom -->
+                  <h5 class="card-title"><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
+                  <p class="card-text">{{ product.description }}</p>
+                  <p>$ {{ product.price }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 {% endblock %}
