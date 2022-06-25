@@ -1,5 +1,5 @@
 body {
-    background: #f4dcb6;
+    background: #ffeb00; /* #e62b2f, #003055 */
 }
 
 /* -- Embedded Text Home page Image -- */
@@ -19,3 +19,20 @@ body {
     padding: 10px;
     right: 25%;
 } /* ---------------------------------- */
+
+.featured-items a {
+    color: #003055;
+    text-decoration: none;
+  }
+
+.carousel-control-next-icon {
+    background-color: #003055;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.carousel-control-prev-icon {
+    background-color: #003055;
+    border-radius: 5px;
+    padding: 20px;
+}

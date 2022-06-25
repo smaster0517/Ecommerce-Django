@@ -8,30 +8,29 @@
             <!-- custom -->
             <!-- <h1>embedded text in image</h1> -->
         </div>
+    </div> 
+
+    <div class="text-center mt-5 text-muted">
+        <!-- custom  quote -->
+        <div class="initialism">The best deals should not be hard to find</div>
+        <div class="initialism">Don't forget us when remembering where you found that deal</div>
+        <div class="initialism">Family founded and operated buisiness</div>
     </div>
 
-    <div class="text-center mt-5">
-        <!-- custom -->
-        <div class="lead">The best deals should not be hard to find</div>
-        <div class="lead">Don't forget us when remembering where you found that deal</div>
-        <div class="lead">Family founded and operated buisiness</div>
-    </div>
-
-    <div class="container mt-5 mb-5">
-        <p class="display-6 text-center">Featured Items</p>
-        <div class="row row-cols-1 row-cols-md-4 g-4 text-center">
+    <div class="container mt-5 mb-5 text-center">
+        <div class="lead mb-5">Featured Items</div>
+        <div class="row row-cols-1 row-cols-md-4 g-5">
             {% for product in all_products %}
-            <div class="col">
-              <div class="card h-100">
-                <!-- custom -->
-                <img src="{{ product.thumbnail_image.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <!-- custom -->
-                  <h5 class="card-title"><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
-                  <p class="card-text">{{ product.description }}</p>
-                  <p>$ {{ product.price }}</p>
+            <div class="col featured-items d-flex justify-content-center banner-card">
+                <div class="card h-100">
+                    <!-- custom -->
+                    <a href="{% url 'product-detail' product.id %}"><img src="{{ product.thumbnail_image.url }}" class="card-img-top" alt="..."></a>
+                    <div class="card-body">
+                        <!-- custom -->
+                        <h5 class="card-title"><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
+                        <p>$ {{ product.price }}</p>
+                    </div>
                 </div>
-              </div>
             </div>
             {% endfor %}
         </div>
