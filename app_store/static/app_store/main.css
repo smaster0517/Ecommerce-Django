@@ -36,3 +36,12 @@ body {
     border-radius: 5px;
     padding: 20px;
 }
+
+.layout-footer {
+    font-size: small;
+    margin-top: 30%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+    border-top: solid 1px #003055;
+}
