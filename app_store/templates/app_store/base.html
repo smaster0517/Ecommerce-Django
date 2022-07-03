@@ -29,7 +29,7 @@
                   <!-- custom icon -->
                   <img src="{% static 'app_store/icons/penguinLogo.png' %}" alt="" width="30" height="30" class="d-inline-block align-text-top ms-2 me-2">
                   <!-- custom name -->
-                  Penguin Da Flipper
+                  Penguin the Flipper
                 </a>
             </div>
           </nav>
@@ -49,6 +49,10 @@
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <form class="d-flex form-inline" method="GET" action="{% url 'store-products' %}">
+                    <input class="form-control mr-sm-2 me-2" type="search" placeholder="Search" aria-label="Search" name="search" value="{{ request.GET.search }}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Account</a>
                 </li>
