@@ -7,8 +7,11 @@ from django.db.models import Q
 class FeaturedProductListView(ListView):
     model = Product
     template_name = 'app_store/home.html' # <app>/<model>_<viewtype>.html
-    context_object_name = 'all_products'
-    ordering = ['-date_posted']
+
+    def get_context_data(self, **kwargs):
+        context = super(FeaturedProductListView, self).get_context_data(**kwargs)
+        context['all_featured_products'] = self.model.objects.filter(featured=True).all().order_by('-date_posted')
+        return context
 
 class ProductDetailView(DetailView):
     model = Product
