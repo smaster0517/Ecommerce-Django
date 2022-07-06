@@ -1,0 +1,27 @@
+{% extends "app_store/base.html" %}
+
+{% block content %}
+
+    <div class="card p-3 shadow-lg blog-container">
+        <div class="card-header text-light" style="background-color: #003055;">
+            <small>{{ blog.date_posted | date:"F d, Y" }}</small> - <small>{{blog.read_time}} min. read</small>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{ blog.title }}</h4>
+            <p class="card-text">{{ blog.content|safe }}</p>
+        </div>
+        {% for section in blog.blogsection_set.all %}
+            <div class="card-body">
+                <h6 class="card-title"><u>{{ section.title }}</u></h6>
+                {{ section.content|safe }}
+            </div>
+            {% if section.image != 'default.jpg' %}
+                <div class="text-center mb-3 mt-3">
+                    <img src="{{ section.image.url }}" class="d-block w-50 h-50 mx-auto" alt="{{ section.title }}">
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="text-end">- [author name]</div>
+    </div>
+
+{% endblock content %}
