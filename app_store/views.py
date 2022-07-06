@@ -3,6 +3,10 @@ from app_store.models import Product
 from functools import reduce
 import operator
 from django.db.models import Q
+from django.shortcuts import render
+
+def about(request):
+    return render(request, "app_store/about.html")
 
 class FeaturedProductListView(ListView):
     model = Product
