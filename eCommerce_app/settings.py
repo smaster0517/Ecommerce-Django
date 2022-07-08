@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'app_users.apps.AppUsersConfig',
     'app_store.apps.AppStoreConfig',
     'app_blog.apps.AppBlogConfig',
     'app_forum.apps.AppForumConfig',
@@ -123,6 +126,8 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

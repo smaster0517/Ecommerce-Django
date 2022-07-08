@@ -1,0 +1,23 @@
+{% extends "app_store/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container d-flex justify-content-center">
+    <div class="col-lg-6">
+        <div class="d-flex justify-content-center mb-3 mt-3">
+            <a href="{% url 'login' %}" class="link-dark m-1">Sign In</a>
+            <a href="{% url 'register' %}" class="link-dark m-1">Create Your Account</a>    
+        </div>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                {# form|crispy #}
+                <div>
+                    <button class="col-lg-12 btn btn-dark" type="submit">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
