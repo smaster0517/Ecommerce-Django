@@ -2,7 +2,48 @@
 {% block content %}
 
 <div class="container d-flex justify-content-center mt-5">
-    <h2>Profile Account for {{ user.username }}</h2>
+    <div class="container rounded mt-5 mb-5 text-light" style="background-color: rgb(28, 27, 27);">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="..."><span class="font-weight-bold mt-2">{{ user.username }}</span><span class="font-weight-bold">{{ user.email }}</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="{{ user.email }}" value=""></div>
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">State</label><input type="text" class="form-control" placeholder="state" value=""></div>
+                        <div class="col-md-6"><label class="labels">Zipcode</label><input type="text" class="form-control" placeholder="zipcode" value=""></div>
+                    </div>
+                    <div class="mt-5 text-center"><button class="col-md-6 btn btn-secondary profile-button" type="button">Save Profile</button></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center recent-orders"><h4>Recent Orders</h4><span class="border px-3 p-1 recent-orders">All Orders</span></div><br>
+                    <div class="col-md-12">[order_number] - <small>[mm/dd/yyyy]</small></div> <br>
+                </div>
+                <hr>
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center wish-list"><h4>Wish List</h4><span class="border px-3 p-1 recent-orders">See All</span></div><br>
+                    <div class="col-md-12">[title_with_item_link]</small></div> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 </div>
 
 {% endblock %}
