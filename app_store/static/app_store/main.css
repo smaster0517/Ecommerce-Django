@@ -2,24 +2,6 @@ body {
     background: #ffeb00; /* #e62b2f, #003055 */
 }
 
-/* -- Embedded Text Home page Image -- */
-.banner-card {
-    position: relative;
-}
-
-.banner-card img {
-    max-width: 100%;
-    height: auto;
-}
-
-.banner-text {
-    position: absolute;
-    bottom: 0;
-    color: #000000;
-    padding: 10px;
-    right: 25%;
-} /* ---------------------------------- */
-
 .featured-items a {
     color: #003055;
     text-decoration: none;
@@ -43,7 +25,7 @@ body {
     margin-left: 20%;
     margin-right: 20%;
     margin-bottom: 5%;
-    border-top: solid 1px #b2bdc6;
+    border-top: solid 1px #393b3d;
 }
 
 .blog-container {
