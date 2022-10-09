@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="container mt-5 mb-5 text-center">
-        <div class="lead mb-5">Items For Sale</div>
-        <div class="row row-cols-1 row-cols-md-4 g-5">
+        <div class="display-6 mb-3"><span class="p-2" style="border-bottom: solid 3px #003055;border-top: solid 3px #003055;"> Items For Sale </span></div>
+        <div class="mt-1 row row-cols-1 row-cols-md-4 g-5">
             {% for product in all_products %}
             <div class="col featured-items d-flex justify-content-center">
                 <div class="card h-100">
@@ -11,9 +11,13 @@
                     <a href="{% url 'product-detail' product.id %}"><img src="{{ product.thumbnail_image.url }}" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <!-- custom -->
-                        <h5 class="card-title"><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
+                        <h5 class="card-title"><a class="link-dark" href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
                         <!-- <p class="card-text">{{ product.description }}</p> -->
                         <p>$ {{ product.price }}</p>
+                        <!-- if item not in wishlist -->
+                        <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                        <!-- else (remove from wishlist) -->
+                        <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
                     </div>
                 </div>
             </div>

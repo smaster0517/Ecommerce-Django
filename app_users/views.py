@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
 from django.contrib import messages
+from app_store.models import Wishlist
 from django.contrib.auth.decorators import login_required
 
 def register(request):
@@ -17,4 +18,9 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, "app_users/profile.html")
+    wishlist = Wishlist.objects.get(user=request.user)
+    products_in_wishlist = wishlist.wishlistproduct_set.order_by('-date_added')[:10] 
+    context = {
+        'products_in_wishlist': products_in_wishlist
+    }
+    return render(request, "app_users/profile.html", context=context)

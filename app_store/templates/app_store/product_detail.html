@@ -7,7 +7,7 @@
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  {% for image in product.images_set.all %}
+                  {% for image in product.image_set.all %}
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter }}" aria-label="Slide {{ forloop.counter |add:'1' }}"></button>
                   {% endfor %}
                 </div>
@@ -15,7 +15,7 @@
                   <div class="carousel-item active">
                     <img src="{{ product.thumbnail_image.url }}" class="d-block w-75 mx-auto" alt="...">
                   </div>
-                  {% for image in product.images_set.all %}
+                  {% for image in product.image_set.all %}
                     <div class="carousel-item">
                         <img src="{{ image.image.url }}" class="d-block w-75 mx-auto" alt="...">
                     </div>
@@ -35,6 +35,10 @@
             <div class="container">
                 <h3>{{ object.title }}</h3>
                 <!-- <p>{{ object.date_posted }}</p> -->
+                <!-- if item not in wishlist -->
+                <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                <!-- else (remove from wishlist) -->
+                <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
             </div>
             <nav class="container mt-3">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">

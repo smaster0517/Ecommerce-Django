@@ -22,8 +22,12 @@
                     <a href="{% url 'product-detail' product.id %}"><img src="{{ product.thumbnail_image.url }}" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <!-- custom -->
-                        <h5 class="card-title"><a href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
+                        <h5 class="card-title"><a class="link-dark" href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
                         <p>$ {{ product.price }}</p>
+                        <!-- if item not in wishlist -->
+                        <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                        <!-- else (remove from wishlist) -->
+                        <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
                     </div>
                 </div>
             </div>
