@@ -37,8 +37,8 @@
                 </div>
                 <hr> -->
                 <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center wish-list"><h4>Wish List</h4><span class="border px-3 p-1 recent-orders">See All</span></div><br>
-                    <div>
+                    <div class="d-flex justify-content-between align-items-center wish-list"><h4>Wish List</h4><span class="border px-3 p-1"><a class="text-decoration-none" href="{% url 'wishlist-products' %}">See All</a></span></div><br>
+                    <div class="recent-wishlisted">
                         {% for product in products_in_wishlist %}
                             <div><a href="{% url 'product-detail' product.product.id %}">{{ product.product.title }}</a></div>
                         {% endfor %}

@@ -14,7 +14,7 @@
 
     <div class="container mt-5 mb-5 text-center">
         <div class="lead mb-5">Featured Items</div>
-        <div class="row row-cols-1 row-cols-md-4 g-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for product in all_featured_products %}
             <div class="col featured-items d-flex justify-content-center banner-card">
                 <div class="card h-100">
@@ -24,10 +24,13 @@
                         <!-- custom -->
                         <h5 class="card-title"><a class="link-dark" href="{% url 'product-detail' product.id %}">{{ product.title }}</a></h5>
                         <p>$ {{ product.price }}</p>
-                        <!-- if item not in wishlist -->
-                        <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
-                        <!-- else (remove from wishlist) -->
-                        <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
+                        {% if user.is_authenticated %}
+                            {% if product.id in current_user_wishlist_products %}
+                                <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
+                            {% else %}
+                                <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
