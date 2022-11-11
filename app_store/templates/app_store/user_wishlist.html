@@ -1,9 +1,10 @@
 {% extends "app_store/base.html" %}
+{% load static %}
 
 {% block content %}
     <div class="container mt-5 mb-5 text-center">
         <div class="display-6 mb-3"><span class="p-2" style="border-bottom: solid 3px #003055;border-top: solid 3px #003055;"> My Wishlist </span></div>
-        <div class="mt-1 row row-cols-1 row-cols-md-5 g-6">
+        <div class="mt-1 row row-cols-1 row-cols-md-3 g-4">
             {% for product in all_wishlist_products %}
             <div class="col featured-items d-flex justify-content-center">
                 <div class="card h-100">
@@ -14,7 +15,8 @@
                         <h5 class="card-title"><a class="link-dark" href="{% url 'product-detail' product.product.id %}">{{ product.product.title }}</a></h5>
                         <!-- <p class="card-text">{{ product.product.description }}</p> -->
                         <p>$ {{ product.product.price }}</p>
-                        <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
+                        <!-- TODO product.product.id if removing directly from user wishlist.... -->
+                        <button class="btn btn-outline-dark alter-wishlist" id="{{ product.product.id }}">Remove from Wishlist</button>
                     </div>
                 </div>
             </div>
@@ -41,4 +43,8 @@
             {% endif %}
         {% endif %}
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'app_store/js/wishlist_add_remove.js' %}"></script>
 {% endblock %}

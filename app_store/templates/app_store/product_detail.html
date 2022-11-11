@@ -1,4 +1,5 @@
 {% extends "app_store/base.html" %}
+{% load static %}
 
 {% block content %}
     <div class="container mt-5">
@@ -57,13 +58,17 @@
             <div class="ms-2">
                 {% if user.is_authenticated %}
                     {% if product.id in current_user_wishlist_products %}
-                        <button class="btn btn-outline-dark remove-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
+                        <button class="btn btn-outline-dark alter-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
                     {% else %}
-                        <button class="btn btn-outline-dark add-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                        <button class="btn btn-outline-dark alter-wishlist" id="{{ product.id }}">Add to Wishlist</button>
                     {% endif %}
                 {% endif %}
             </div>
           </div>
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'app_store/js/wishlist_add_remove.js' %}"></script>
 {% endblock %}
