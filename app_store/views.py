@@ -65,10 +65,9 @@ class WishListView(ListView):
     model = WishlistProduct
     template_name = 'app_store/user_wishlist.html'
     context_object_name = 'all_wishlist_products'
-    paginate_by = 20
+    paginate_by = 24
 
-    def get_query_set(self, **kwargs):
-        query_set = super(WishListView, self).get_context_data(**kwargs)
+    def get_queryset(self, **kwargs):
         query_set = self.model.objects.all().filter(user=self.request.user).order_by('-date_added')
         return query_set
 
@@ -76,9 +75,9 @@ def api_update_wishlist(request):
     json_data = json.loads(request.body)
     product_id = json_data['productID']
 
-    if WishlistProduct.objects.filter(product__id=product_id).exists():
+    if WishlistProduct.objects.filter(product__id=product_id, user=request.user).exists():
         # removes entry from wishlist
-        WishlistProduct.objects.filter(product__id=product_id).delete()
+        WishlistProduct.objects.filter(product__id=product_id, user=request.user).delete()
         return JsonResponse({'data':'Add to Wishlist'})
     else:
         # adds entry to wishlist
