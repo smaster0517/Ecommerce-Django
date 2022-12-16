@@ -11,8 +11,8 @@ Welcome to the Django E-Commerce Template Project! This project is a starting po
 
 ### Prerequisites
 
-* Python 3.6 or higher
-* Django 3.1 or higher
+* Python 3.8.1 or higher
+* Django 4.0.3 or higher
 
 ### Getting Started
 
@@ -24,23 +24,25 @@ Welcome to the Django E-Commerce Template Project! This project is a starting po
 
 ``` cd django-ecommerce-template ```
 
-3. Install the required packages:
+3. A virtual environment: It is recommended to set up a virtual environment for your Django project to keep its dependencies separate from other Python projects on your system. You can create a virtual environment using the venv module that comes with Python 3.8.1 or higher.
+
+4. Install the required packages:
 
 ```pip install -r requirements.txt ```
 
-4. Run the migrations to create the database tables:
+5. Run the migrations to create the database tables:
 
 ``` python manage.py migrate ```
 
-5. Create a superuser to access the admin panel:
+6. Create a superuser to access the admin panel:
 
 ``` python manage.py createsuperuser ```
 
-6. Run the development server:
+7. Run the development server:
 
 ``` python manage.py runserver ```
 
-7. Open your web browser and navigate to http://127.0.0.1:8000/ to see the site.
+8. Open your web browser and navigate to http://127.0.0.1:8000/ to see the site.
 
 ### Adding Products
 
