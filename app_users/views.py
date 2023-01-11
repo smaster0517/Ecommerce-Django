@@ -19,7 +19,8 @@ def register(request):
 @login_required
 def profile(request):
     wishlist = Wishlist.objects.get(user=request.user)
-    products_in_wishlist = wishlist.wishlistproduct_set.order_by('-date_added')[:10] 
+    products_in_wishlist = wishlist.wishlistproduct_set.order_by('-date_added')[:10]
+
     if request.method == 'POST':
         form = UpdateProfileForm(request.POST)
         if form.is_valid():

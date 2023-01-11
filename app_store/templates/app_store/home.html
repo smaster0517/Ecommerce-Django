@@ -3,18 +3,18 @@
 
 {% block content %}
     <div class="banner-card d-flex justify-content-center">
-        <img src="{% static 'app_store/site_images/home_page_img.svg' %}" class="img-responsive" alt="...">
+        <img src="{% static 'app_store/site_images/home_page_img.svg' %}" class="img-fluid p-2" alt="...">
     </div> 
 
-    <div class="text-center mt-5">
+    <div class="text-center mt-3 p-2">
         <!-- custom  quote -->
         <div class="display-5">The best deals should not be hard to find</div>
         <div class="display-5">Don't forget us when remembering where you found that deal</div>
     </div>
 
     <div class="container mt-5 mb-5 text-center">
-        <div class="lead mb-5">Featured Items</div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <small class="display-6 mb-3 p-2" style="color: #003055;border-bottom: double 5px #003055;">Featured Items</small>
+        <div class="mt-2 row row-cols-1 row-cols-md-3 g-4">
             {% for product in all_featured_products %}
             <div class="col featured-items d-flex justify-content-center banner-card">
                 <div class="card h-100">
@@ -29,6 +29,9 @@
                                 <button class="btn btn-outline-dark alter-wishlist" id="{{ product.id }}">Remove from Wishlist</button>
                             {% else %}
                                 <button class="btn btn-outline-dark alter-wishlist" id="{{ product.id }}">Add to Wishlist</button>
+                            {% endif %}
+                            {% if user.username == 'admin' %}
+                                <button class="btn btn-danger delete-product m-2" id="{{ product.id }}">Delete</button>
                             {% endif %}
                         {% endif %}
                     </div>

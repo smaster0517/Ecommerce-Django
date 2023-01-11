@@ -3,7 +3,7 @@ from app_store.models import Product, WishlistProduct, Wishlist
 from functools import reduce
 import operator, json
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 
 def about(request):
@@ -83,6 +83,15 @@ def api_update_wishlist(request):
         # adds entry to wishlist
         product = Product.objects.get(id=product_id)
         wishlist = Wishlist.objects.get(user=request.user)
-        new_wishlist_product = WishlistProduct(user=request.user, Wishlist=wishlist, product=product)
+        new_wishlist_product = WishlistProduct(user=request.user, wishlist=wishlist, product=product)
         new_wishlist_product.save()
         return JsonResponse({'data':'Remove from Wishlist'})
+
+def api_delete_product(request):
+    json_data = json.loads(request.body)
+    product_id = json_data['productID']
+    
+    product = get_object_or_404(Product, pk=product_id)    
+    product.delete()
+
+    return JsonResponse({'data':'Product Deleted'})

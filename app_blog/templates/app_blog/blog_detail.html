@@ -15,7 +15,7 @@
                 <h6 class="card-title"><u>{{ section.title }}</u></h6>
                 {{ section.content|safe }}
             </div>
-            {% if section.image != 'default.jpg' %}
+            {% if section.image %}
                 <div class="text-center mb-3 mt-3">
                     <img src="{{ section.image.url }}" class="d-block w-50 h-50 mx-auto" alt="{{ section.title }}">
                 </div>

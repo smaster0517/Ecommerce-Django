@@ -44,3 +44,30 @@ wishlistButton.forEach(element => {
     element.addEventListener('click', updateWishlist);
 });
 
+const delete_product = (e) => {
+    const productID = e.target.id;
+    const productData = {productID:productID}
+    fetch('/api_delete_product/', {
+        method: 'POST',
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+        credentials: 'same-origin', 
+        body: JSON.stringify(productData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        e.target.innerText = data.data
+      })
+    .catch(error => {
+        console.error('Error:', error);
+      });
+}
+
+let deleteButton = document.querySelectorAll('.delete-product');
+
+deleteButton.forEach(element => {
+    element.addEventListener('click', delete_product);
+});

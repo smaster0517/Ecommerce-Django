@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="container mt-5 mb-5 text-center">
-        <div class="display-6 mb-3"><span class="p-2"> My Wishlist </span></div>
+        <small class="display-6 mb-3 p-2" style="color: #003055;border-bottom: double 5px #003055;">My Wishlist</small>
         <div class="mt-1 row row-cols-1 row-cols-md-3 g-4">
             {% for product in all_wishlist_products %}
             <div class="col featured-items d-flex justify-content-center">
@@ -15,6 +15,9 @@
                         <h5 class="card-title"><a class="link-dark" href="{% url 'product-detail' product.product.id %}">{{ product.title }}</a></h5>
                         <p>$ {{ product.product.price }}</p>
                         <button class="btn btn-outline-dark alter-wishlist" id="{{ product.product.id }}">Remove from Wishlist</button>
+                        {% if user.username == 'admin' %}
+                            <button class="btn btn-danger delete-product m-2" id="{{ product.id }}">Delete</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>

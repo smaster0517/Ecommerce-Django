@@ -5,7 +5,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     read_time = models.IntegerField(default=0)
-    image = models.ImageField(default='default.jpg', upload_to='blog_pics')
+    image = models.ImageField(upload_to='blog_pics', blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Blog(models.Model):
 class BlogSection(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(default='default.jpg', upload_to='product_pics')
+    image = models.ImageField(upload_to='blog_pics', blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     blog = models.ForeignKey(Blog, null=True, on_delete=models.CASCADE)
 

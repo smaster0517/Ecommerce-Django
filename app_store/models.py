@@ -12,11 +12,14 @@ class Product(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.title
+        return f'{self.title} (${self.price})'
 
 class Image(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='product_pics')
     product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f'Image for {self.product.title} (${self.product.price})'
 
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -35,9 +38,9 @@ many-to-one (WL and WLP) - Wishlist can be associated with many WishlistProduct 
 '''
 class WishlistProduct(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    Wishlist = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
+    wishlist = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     date_added = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return f'Wishlist Product: {self.product.title}'
+        return f'Wishlist Product:{self.product.title} for:{self.user.username}'

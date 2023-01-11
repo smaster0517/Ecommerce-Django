@@ -1,4 +1,5 @@
 {% extends "app_store/base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -7,13 +8,12 @@
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center p-3 py-5">
-                    <img class="img-thumbnail" width="150px" src="{{ user.profile.profile_image.url }}">
-                    <span class="border px-3 p-1 mt-1 text-primary">+ update image</span>
+                    <img class="img-thumbnail" style="background-color: #ffeb00 ;" width="150px" src="{% static 'app_store/site_images/home_page_img.svg' %}">
+                    <!-- <span class="border px-3 p-1 mt-1 text-primary">+ update image</span> -->
                     <span class="mt-2">{{ user.username }}
                 </div>
             </div>
             <div class="col-md-5 border-right">
-
                 <form class="p-3 py-5" action=" {% url 'profile' %} " method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -21,7 +21,6 @@
                         <button class="btn btn-success profile-button" type="submit">Update Profile</button>
                     </div>
                 </form>
-
             </div>
             <div class="col-md-4">
                 <!-- custom (add recent orders) -->
