@@ -77,3 +77,7 @@ You should now be able to view your new blog post on the front-end of your Djang
 ### Disclaimer
 
 This project is for educational purposes only and is not intended for use in a production environment. No buying functionality has been implemented.
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
