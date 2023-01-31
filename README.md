@@ -2,6 +2,10 @@
 
 Welcome to the Django E-Commerce Template Project! This project is a starting point for building an e-commerce website using Django.
 
+Home Page ![Home Page](https://github.com/raw0ol/raw0ol.github.io/blob/main/images/penguinHome.png)
+
+Store Page ![Store Page](https://github.com/raw0ol/raw0ol.github.io/blob/main/images/penguinStore.png)
+
 ### Features
 
 * Admin user can list products with descriptions, prices, and images
@@ -11,8 +15,10 @@ Welcome to the Django E-Commerce Template Project! This project is a starting po
 
 ### Prerequisites
 
-* Python 3.8.1 or higher
-* Django 4.0.3 or higher
+* Python 3.8.1
+* Django 4.0.3
+
+---
 
 ### Getting Started
 
@@ -63,6 +69,8 @@ python manage.py runserver
 3. Click on the "Add Product" button
 4. Enter the product information and click "Save" (feature items appear in homepage)
 
+![Admin Page](https://github.com/raw0ol/raw0ol.github.io/blob/main/images/penguinAdmin.png)
+
 ### Adding to Wishlist
 
 1. Sign up for an account at http://127.0.0.1:8000/accounts/register/
@@ -85,6 +93,45 @@ Use the search box in the top menu to search for products by name.
 7. Enter the blog section information and select which Blog to add this section to.
 
 You should now be able to view your new blog post on the front-end of your Django website.
+
+---
+
+### How to Contribute
+
+We welcome contributions to this project! Here's how to make a pull request:
+
+1. Fork the repository to your personal GitHub account.
+
+2. Clone the repository to your local machine:
+
+``` console
+git clone https://github.com/[your-username]/django-eCommerce-template.git
+```
+
+3. Create a new branch to make your changes on:
+
+``` console
+git checkout -b my-branch
+```
+
+4. Make changes and commit them to your new branch: 
+
+``` console
+git add .
+git commit -m "My changes to the project"
+```
+
+5. Push your changes to your forked repository:
+
+``` console
+git push origin my-branch
+```
+
+6. Go to the original repository on GitHub and create a pull request. Compare your changes with the original repository and make sure to describe your changes and why you made them.
+
+7. Wait for the maintainer to review your changes and merge them into the main codebase.
+
+---
 
 ### Disclaimer
 
