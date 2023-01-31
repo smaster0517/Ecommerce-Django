@@ -18,29 +18,41 @@ Welcome to the Django E-Commerce Template Project! This project is a starting po
 
 1. Clone the repository:
 
-``` git clone https://github.com/raw0ol/django-eCommerce-template.git ```
+``` console
+git clone https://github.com/raw0ol/django-eCommerce-template.git 
+```
 
 2. Change into the project directory:
 
-``` cd django-ecommerce-template ```
+``` console
+cd django-ecommerce-template 
+```
 
 3. A virtual environment: It is recommended to set up a virtual environment for your Django project to keep its dependencies separate from other Python projects on your system. You can create a virtual environment using the venv module that comes with Python 3.8.1 or higher.
 
 4. Install the required packages:
 
-```pip install -r requirements.txt ```
+``` console 
+pip install -r requirements.txt 
+```
 
 5. Run the migrations to create the database tables:
 
-``` python manage.py migrate ```
+```  console
+python manage.py migrate 
+```
 
 6. Create a superuser to access the admin panel:
 
-``` python manage.py createsuperuser ```
+``` console
+python manage.py createsuperuser 
+```
 
 7. Run the development server:
 
-``` python manage.py runserver ```
+``` console
+python manage.py runserver 
+```
 
 8. Open your web browser and navigate to http://127.0.0.1:8000/ to see the site.
 
